@@ -82,7 +82,7 @@ new Vue({
       return this.generateRandomDamage(minDamage, maxDamage);
     },
     addLog: function (actor, message) {
-      this.logs.push({
+      this.logs.unshift({
         actor: actor,
         message: message
       });
