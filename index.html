@@ -41,10 +41,12 @@
   </section>
   <section class="row log" v-if="isStarted && logs.length">
     <div class="small-12 columns">
-      <ul>
-        <li v-for="log in logs" :class="{'player-turn': log.actor === actorPlayer, 'monster-turn': log.actor === actorMonster}">
-          {{ log.message }}
-        </li>
+      <ul class="list-group">
+         <transition-group name="slide"> 
+          <li v-for="(log, index) in logs" :class="{'player-turn': log.actor === actorPlayer, 'monster-turn': log.actor === actorMonster, 'list-group-item': true}" :key="log">
+            {{ log.message }}
+          </li>
+         </transition-group> 
       </ul>
     </div>
   </section>
